@@ -1,0 +1,86 @@
+import datetime
+print "**WELCOME TO MUSTAFAZ VIDEO LIB**"
+prompt =">"
+class Customer(object):
+	def __init__(self, name, period, charges =[], mybag=[]):
+		self.name =name
+		# self.charges = charges
+		self.mybag=mybag
+		self.period =period
+
+
+class Movies(object):
+	def __init__(self, movies_list=[], category=[], category_price=[]):
+		self.movies_list =movies_list
+		self.category= category
+		self.category_price= category_price
+		
+
+class Owner(object):
+	def __init__(self, library=[], movies_borrowed= []):
+		self.movies_borrowed=movies_borrowed
+		self.library = library
+
+
+# 	if __name__ ="__main__":
+
+#create a cutomer list
+customer_list= []
+mydict=[]
+
+while True:
+	choice =int(raw_input("1.Borrow a movie\n2.Return borrowed movies\n"))
+	# print(prompt)
+	if choice == 1:
+		print "\nPlease enter your desired action"
+		name = raw_input("Customer Name :")
+		period = raw_input("Number of days: ")
+
+		
+		# mydict["movies_list"] = raw_input("Movies taken:")
+		movies_list =[]
+		movies_list= raw_input("Movies taken:\n")
+		while True:
+			movies_list = raw_input()
+			if movies_list == '':
+				break
+		# 
+		category =[]
+		category = raw_input("Category:\n")
+		while True:
+			for m, c in zip()
+			print movies_list
+			category = raw_input()
+		category_price =[]
+		category_price =raw_input("Price:")
+		
+
+
+		customer =Customer(name, period)
+		customer_list.append(customer)
+		# owner =Owner(movies_borrowed, library)
+		#movie = Movies(movies_list, category, category_price)
+		print "\nMOVIES\t\tCATEGORY\t\tPRICE"
+		
+		print "%s\t\t%s\t\t%s" %(movies_list, category, category_price)
+		
+		# movies_list =["Phantom", "Frozen", "Tangled", "Inception", "Hitman"]
+		# category= ["New Release", "Children's", "Children's", "Regular", "New Release"]
+		# category_price= ["UGX1000" ,"UGX500" ,"UGX300"]
+		
+		# print "***MOVIES AVALABLE***"
+		# print "MOVIES\t\tCATEGORY\t\tPRICE"
+		# for m, i, p in zip(movies_list, category, category_price):
+		# 	print "%s\t\t%s\t\t%s" %(m, i,p)# print "Movie Name\tCategory\tPrice"
+		# for i in category:
+		# 	print i
+		# print category_price
+		# print "%s\n%s\n" %(movies_list, category)
+		# print "%s%s%s" %(movies_list, category, category_price)
+		# print " ".join(movies_list)
+		# print "".join()
+
+	# else:
+	# 	print 'stop'
+		# 
+		
