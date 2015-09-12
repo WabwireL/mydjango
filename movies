@@ -1,72 +1,146 @@
 import datetime
+import math
 print "**WELCOME TO MUSTAFAZ VIDEO LIB**"
 prompt =">"
 class Customer(object):
-	def __init__(self, name, period, charges =[], mybag=[]):
+	def __init__(self, name, period, returned =[], total_charges =[], mybag=[]):
 		self.name =name
-		# self.charges = charges
+		self.total_charges = total_charges
+		self.returned = returned
 		self.mybag=mybag
 		self.period =period
 
 
 class Movies(object):
-	def __init__(self, movies_list=[], category=[], category_price=[]):
-		self.movies_list =movies_list
+	def __init__(self, movies_borrowed= [], movies_list=[], category=[], category_price=[]):
 		self.category= category
 		self.category_price= category_price
-		
-
-class Owner(object):
-	def __init__(self, library=[], movies_borrowed= []):
 		self.movies_borrowed=movies_borrowed
+		
+class Owner(object):
+	def __init__(self, lent=[], library=[]):
 		self.library = library
+		self.lent = lent
+class Borrowing(object):
+	def __init__(self, date_borrowed, date_returned):
+		self.date_borrowed = date_borrowed
+		self.date_returned = date_returned
 
 
 # 	if __name__ ="__main__":
 
 #create a cutomer list
+
 customer_list= []
 mydict=[]
+category =[]
+category_price =[]
+
+
+
+
+
 
 while True:
 	choice =int(raw_input("1.Borrow a movie\n2.Return borrowed movies\n"))
 	# print(prompt)
 	if choice == 1:
-		print "\nPlease enter your desired action"
+		print "\n**BORROW A MOVIE**\nPlease enter your desired action"
 		name = raw_input("Customer Name :")
-		period = raw_input("Number of days: ")
-
-		
+		period = int(raw_input("Number of days: "))
 		# mydict["movies_list"] = raw_input("Movies taken:")
-		movies_list =[]
-		movies_list= raw_input("Movies taken:\n")
+		lent= raw_input("Movies taken:")
 		while True:
 			movies_list = raw_input()
 			if movies_list == '':
 				break
-		# 
-		category =[]
-		category = raw_input("Category:\n")
-		while True:
-			for m, c in zip()
-			print movies_list
-			category = raw_input()
-		category_price =[]
-		category_price =raw_input("Price:")
+		print "\n**ENTER CATEGORY**\n"
+		while True:	
+			category= int(raw_input("1.New releases\n2.Regular\n3.Children's\n4.Exit\n"))
+			if category == 1:
+				category_price = 1000
+			elif category == 2:
+				category_price =500
+			elif category == 3:
+				category_price =300
+
+			elif category == 4:
+				break
+		# owner = Owner(lent, library)
+		# for t in owner.library:
+		# 	if t.movies_borrowed == lent:
+		# 		date_borrowed = datetime.date.today()
+		# 		date_returned = date_borrowed +datetime.timedelta(days =period)
+
+		# owner.lent.append({loan:t})
+		
+		# while True:
+			
+		# 	category = raw_input()
+		# 	for y in category:
+		# 		if category == new releases:
+		# 			category_price = 1000
+		# 		elif category == regular:
+		# 			category_price = 500
+		# 		else:
+		# 			category_price = 300
+
+		# 	if category == '':
+		# 		break
+		
 		
 
-
-		customer =Customer(name, period)
-		customer_list.append(customer)
-		# owner =Owner(movies_borrowed, library)
-		#movie = Movies(movies_list, category, category_price)
-		print "\nMOVIES\t\tCATEGORY\t\tPRICE"
+		# for i in category_price:
+		# 	total_charges +=category_price[i]
+		print "\nMOVIES\t\tCATEGORY\t\tPRICE\n"
 		
 		print "%s\t\t%s\t\t%s" %(movies_list, category, category_price)
+
+
+		# total_charges =sum(map(int, category_price))
+		total_charges =0
+		total_charges = total_charges + category_price
+		print "\nYour total charges are %s" %total_charges
 		
-		# movies_list =["Phantom", "Frozen", "Tangled", "Inception", "Hitman"]
-		# category= ["New Release", "Children's", "Children's", "Regular", "New Release"]
-		# category_price= ["UGX1000" ,"UGX500" ,"UGX300"]
+	elif choice == 2:
+		print "**RETURNING A MOVIE***\n"
+		name = raw_input("Customer Name:")
+		period = raw_input("No of days:")
+		returned =raw_input("Movie Name:")
+		while True:
+			returned =raw_input()
+			if returned =='':
+				break
+		print "\n**ENTER CATEGORY**\n"
+		while True:	
+			category= int(raw_input("1.New releases\n2.Regular\n3.Children's\n4.Exit\n"))
+			if category == 1:
+				category_price = 1000
+			elif category == 2:
+				category_price =500
+			elif category == 3:
+				category_price =300
+
+			elif category == 4:
+				break
+		total_charges =0
+		for i in category_price:
+			total_charges += category_price[i]
+		print "\nMOVIES\t\tCATEGORY\t\tPRICE\n"
+		for m, i, p in zip(movies_list, category, category_price):
+			print "%s\t\t%s\t\t%s" %(m, i,p)
+		#print "%s\t\t%s\t\t%s" %(returned, category, category_price)
+
+customer =Customer(name, period, returned, total_charges)
+movie = Movies(movies_borrowed, category, category_price)
+		
+customer_list.append(customer)
+owner.library.append(movie)
+	
+
+
+
+
 		
 		# print "***MOVIES AVALABLE***"
 		# print "MOVIES\t\tCATEGORY\t\tPRICE"
